@@ -3,7 +3,7 @@ function Url(url) {
 }
 
 Url.prototype.parser = function(url) {
-  const reg = /^([\w]+):\/\/([\w\.]+):([\d]+)([\/\w\.-]+)\?([\w\W]+)\#([\w\W]+)$/g;
+  const reg = /^([\w]+):\/\/([\w\.]+):?([\d]+)?([\/\w\.-]+)?\??([^#]+)?\#?([\w\W]+)?$/g;
   const [_, scheme, host, port, resource, query, anchor] = reg.exec(url);
   Object.assign(this, {
     scheme,
@@ -19,8 +19,6 @@ Url.prototype.parser = function(url) {
   });
 };
 
-const example = new Url(
-  "http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument"
-);
+const example = new Url("http://www.example.com?key1=value1&key2=value2");
 
 console.log(example);
