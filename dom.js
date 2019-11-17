@@ -62,7 +62,7 @@ console.log(
 // console.log(regDom("<html><head><link href=''/></head><body>aa</body></html>"));
 
 function tokenizer(html) {
-  const reg = /(?:<\/?[\w]+\s?[^\/>]?\/?>)|(?:[^<]+)/g;
+  const reg = /(?:<\/?[\w\s"'-;:\/=]+>)|(?:[^<\/>]+)/g;
   const result = [];
   let match;
   while ((match = reg.exec(html))) {
@@ -72,7 +72,7 @@ function tokenizer(html) {
 }
 
 function lexer(tokens) {
-  return tokens.map(token => {
+  const lexemes = tokens.map(token => {
     let [value] = token;
     let type;
     switch (true) {
@@ -93,10 +93,11 @@ function lexer(tokens) {
         break;
     }
     return {
-      value,
+      value: value.trim(),
       type
     };
   });
+  return lexemes.filter(({ value }) => value.trim());
 }
 
 function parser(lexemes) {
