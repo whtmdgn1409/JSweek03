@@ -62,7 +62,7 @@ console.log(
 // console.log(regDom("<html><head><link href=''/></head><body>aa</body></html>"));
 
 function tokenizer(html) {
-  const reg = /(?:<\/?[\w]+\s?[^\/>]+?\/?>)|(?:[^<]+)/g;
+  const reg = /(?:<\/?[\w]+\s?[^\/>]?\/?>)|(?:[^<]+)/g;
   const result = [];
   let match;
   while ((match = reg.exec(html))) {
