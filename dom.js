@@ -3,38 +3,42 @@ let count = 0;
 const arrayTags = [];
 const len = input.length;
 
+const domtree = {
+  name: ``,
+  level: 0,
+  children: []
+};
+
 parsingTag(input);
 
 function parsingTag() {
   for (let i = 0; i < len; i++) {
-    if (input[i] === "<") {
+    if (input[i] === "<" && input[i + 1] !== "/") {
       //태그 이름찾기
-      count++;
-      //console.log(i, findTagName(i));
-      arrayTags.push(findTagName(i));
-    }
+      count += 1;
+      if (count == 1) {
+        domtree.name = findTagName(i);
+        domtree.level = count;
+      } else if (count > 1) {
+        domtree.children.push({
+          name: findTagName(i),
+          level: count,
+          children: []
+        });
+      }
+    } else if (input[i] === "<" && input[i + 1] === "/") count--;
   }
-  return arrayTags;
 }
-
-/*
-function findTagName(st, a) {
-  let cnt = 0;
-  for (let j = a + 1; j < st.length && st[j] !== ">"; j++) {
-    cnt++;
-  }
-  console.log(st.slice(a + 1, cnt + 1));
-  return st.slice(a + 1, cnt + 1);
-}
-*/
 
 function findTagName(a) {
   let cnt = 0;
   let start = a + 1;
   for (let j = a + 1; input[j] != ">"; j++) {
-    console.log(input[j]);
+    //console.log(input[j]);
     cnt++;
   }
-  console.log(input.slice(start, cnt + 1));
-  return input.slice(start, cnt + 1);
+  //console.log(input.slice(start, start + cnt));
+  return input.slice(start, start + cnt);
 }
+
+console.log(domtree);
