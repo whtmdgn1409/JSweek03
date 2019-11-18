@@ -13,18 +13,17 @@ var Tree = (function() {
       this.children; //Node[] 형
   }
 
-  Tree.prototype.add = function(data) { // 추가. 0일경우 root가 되고 그 외에는 insert하여 값의 크기별로 트리 생성
+  Tree.prototype.add = function(data) { 
     var node = new Node(data);
     if (this.count == 0) {
       this.root = node;
     } else {
-      _insert(this.root, node);
+      // children insert.
     }
     return ++this.count;
   };
   return Tree;
 })();
-
 
 
 
@@ -42,6 +41,7 @@ console.log(regex.exec(doc)[0]);
 
 // 저의 원래 생각은.. 
 // 1. tokenizer : <~~>의 코드를 만나면 그 꺾쇄표시 안에있는 string을 객체의 tagName으로 받으면서, 그 태그별로 쪼갭니다. 
+//                그리고 />을 만나면, 그 전까지 있는 친구들은 모두 자식노드로 들어가게 됩니다.
 // 2. lexer : 쪼개진 태그들을 객체화(의미부여) 시킵니다.
 // 3. parser : 그 결과를 갖는 객체들을 조직화합니다. (child, link)
 // 이렇게 진행하려고 했으나.. 쉽지않았습니다 ... 개념을 익히는데만 시간이 엄청나게 걸렸고.. 
