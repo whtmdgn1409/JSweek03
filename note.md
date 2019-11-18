@@ -169,7 +169,7 @@ console.log(Person.prototype === foo.__proto__);
  {type: 'number', value: 45},
  {type: 'string', value: 'hello'},
  {type: 'RBracket', value: ']'}]
-
+ 
 ```
 
 `parser` : 의미 부여한 데이터를 구조화 

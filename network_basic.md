@@ -56,7 +56,7 @@
 
 ### URL 이란?
 Uniform Resource Locator. 인터넷에서 자원의 위치!! 각각의 유일한 URL은 자원의 유일한 주소를 뜻함.
-http통신을 할 때, client-server 사이에 파일을 request, response할때도 URL을 통해 요청함.
+http통신을 할 때, client-server 사이에 파일을 request, response할때도 URL을 통해 요청함. 
 
 ### URLs 의 구조
 ```

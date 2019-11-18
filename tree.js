@@ -23,7 +23,7 @@ var Tree = (function() {
     return ++this.count;
   };
   return Tree;
-})();
+})(); 
 
 
 

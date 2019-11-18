@@ -16,7 +16,7 @@ function Parse(url) {
     this.parameter = match[6]; // ?key1=value1&key2=value2
     this.anchor = match[7]; // #SomewhereInTheDocument
 }
-
+ 
 
 let example = new Parse('http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument');
 let naver = new Parse('https://naver.com:8000/aaa/bbb/ccc.html?key1=value1&key2=value2#anchor');
