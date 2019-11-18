@@ -2,10 +2,11 @@ function Url(urlString) {
 	this.parseUrl(urlString);
 }
 
+//urlString을 ':'기준으로 자른다
 Url.prototype.tokenizer = function (urlString) {
 	let tokens = urlString.split(':');
-	tokens = tokens.filter(e => e);
-	tokens = (tokens.flatMap(e => e.split('/'))).filter(e => e);
+	tokens = tokens.filter(e => e); //''을 없애주기 위해
+	tokens = (tokens.flatMap(e => e.split('/'))).filter(e => e); // http://의 '//'를 지워주기 위해
   this.href = urlString;
   
 	return tokens;

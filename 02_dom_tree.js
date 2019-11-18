@@ -43,7 +43,7 @@ Dom.prototype.parseHtml = (htmlString) => {
       tag = trimSelfClosing(tag);
     }
 
-    let htmlToken = tag.split(' ');
+    let htmlToken = tag.split(' '); //속성 분리
     const htmlObj = {
       tagName: htmlToken[0],
       type: 'elementNode',
