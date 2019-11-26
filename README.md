@@ -21,7 +21,7 @@
 - 생성자 함수는 tokenizer > lexer > parser 3가지 함수로 크게 골격을 잡는다.
 - 3가지 함수는 prototype을 이용해 내부 메서드로 작성한다.
 
-## 랜더링
+## 랜더링 
 
 ### DOM tree
 
